@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontendsvc
+  namespace: phone-app
+spec:
+  selector:
+    app: final-front
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 8090
+      targetPort: 8090
+  type: LoadBalancer

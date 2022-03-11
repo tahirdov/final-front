@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace: always
+spring:
+  application:
+    name: /final-front
+  main:
+    banner-mode: off
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 20000
+        readTimeout: 120000
+        loggerLevel: full
+        decode404: false
+  httpclient:
+    enabled: false
+    disable-ssl-validation: true
+  okhttp:
+    enabled: true
+backend:
+  phonebook-backend-api: ${PHONEBOOK_BACKEND_API}
+
+management:
+  server:
+    port: ${MANAGEMENT_SERVER_PORT:8081}
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+    enabled-by-default: true
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    metrics:
+      enabled: false
+    info:
+      enabled: true
+

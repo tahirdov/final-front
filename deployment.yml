@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-front
+  namespace: phone-app
+  labels:
+    app: final-front
+    env: demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: final-front
+  template:
+    metadata:
+      labels:
+        app: final-front
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - name: final-front
+          image: orkhan2000/phone-app-frontend:latest ????????
+          env:
+            - name: BACKEND_API
+              value: http://${BACKENDSVC_SERVICE_HOST}:${BACKENDSVC_SERVICE_PORT}
+          volumeMounts:
+            - mountPath: /app/config
+              name: frontend-app-config
+      restartPolicy: Always
+      volumes:
+        - name: frontend-app-config
+          configMap:
+            name: frontend-app-config
+            items:
+              - key: backend-url
+                path: .env
