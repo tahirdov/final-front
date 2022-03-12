@@ -35,14 +35,14 @@ public class UserController {
 
     @PostMapping("/user/edit")
     public String editUser(@ModelAttribute UserReq userRequestData, Model model) {
-        UserOp userOperation = client.editUser(userRequestData);
+        OperationDto userOperation = client.editUser(userRequestData);
         model.addAttribute("operation", "Edit");
         return "operation";
     }
 
     @PostMapping("/user/delete")
     public String deleteUser(@ModelAttribute UserReq userRequestData, Model model) {
-        UserOp userOperation = client.deleteUser(userRequestData);
+        OperationDto userOperation = client.deleteUser(userRequestData);
         model.addAttribute("operation", "Delete");
         return "operation";
     }

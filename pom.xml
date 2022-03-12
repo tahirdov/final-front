@@ -72,7 +72,7 @@
 								<transformer
 										implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<manifestEntries>
-										<Main-Class>app.MainClass</Main-Class>
+										<Main-Class>app.Application</Main-Class>
 									</manifestEntries>
 								</transformer>
 							</transformers>
@@ -103,7 +103,7 @@
 					<append>true</append>
 					<excludes>
 						<exclude>**/app/application.container/**</exclude>
-						<exclude>**/app/MainClass.class</exclude>
+						<exclude>**/app/Application.class</exclude>
 					</excludes>
 				</configuration>
 				<executions>

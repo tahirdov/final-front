@@ -1,12 +1,12 @@
 package application.container.dto;
 
-import application.container.enums.OperationStatuses;
-import application.container.enums.OperationTypes;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import application.container.enums.OperationStatuses;
+import application.container.enums.OperationTypes;
 
 @Data
 @AllArgsConstructor

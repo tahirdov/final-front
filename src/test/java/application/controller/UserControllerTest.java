@@ -39,8 +39,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 )
 
 public class UserControllerTest {
-    @Autowired
-    private UserController controller;
     @MockBean
     private PhoneBookClient client;
     @Autowired
@@ -48,7 +46,6 @@ public class UserControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    private final UUID userId = UUID.randomUUID();
     private final UserReq req = getUserRequestData();
     private final UserOp user = getUserDto();
 
@@ -85,7 +82,7 @@ public class UserControllerTest {
     @SneakyThrows
     @Test
     public void editUserSuccess() {
-        OperationDto userOperation = OperationDto.builder()
+        OperationDto operation = OperationDto.builder()
                 .operation_status(OperationStatuses.SUCCESS)
                 .operation_type(OperationTypes.OPERATION_EDIT)
                 .build();
@@ -93,7 +90,7 @@ public class UserControllerTest {
                 .name("Tahir")
                 .phone("12547852")
                 .build();
-        when(client.editUser(any())).thenReturn(userOperation);
+        when(client.editUser(any())).thenReturn(operation);
         final String contentAsString = mockMvc.perform(
                 post("/user/edit")
                         .content(objectMapper.writeValueAsString(userRequestData))
@@ -117,11 +114,11 @@ public class UserControllerTest {
 
     @Test
     public void deleteUser() throws Exception {
-        OperationDto userOperation = OperationDto.builder()
+        OperationDto operation = OperationDto.builder()
                 .operation_status(OperationStatuses.SUCCESS)
                 .operation_type(OperationTypes.OPERATION_DELETE)
                 .build();
-        when(client.deleteUser(any())).thenReturn(userOperation);
+        when(client.deleteUser(any())).thenReturn(operation);
         final String contentAsString = mockMvc.perform(
                 post("/user/delete")
                         .content(objectMapper.writeValueAsString(req))
