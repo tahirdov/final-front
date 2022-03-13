@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: final-front
-          image: orkhan2000/phone-app-frontend:latest ????????
+          image: tahirdov/phone-app-frontend:latest
           env:
             - name: BACKEND_API
               value: http://${BACKENDSVC_SERVICE_HOST}:${BACKENDSVC_SERVICE_PORT}

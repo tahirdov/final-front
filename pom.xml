@@ -13,8 +13,9 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<sonar.host.url>http://localhost:9000/</sonar.host.url>
 		<sonar.login>348837b40b7b588c28db9d4c56b246972aa80c49</sonar.login>
-		<sonar.projectKey>phone-app-front</sonar.projectKey>
+		<sonar.projectKey>final-front</sonar.projectKey>
 		<sonar.language>java</sonar.language>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.java.binaries>target/classes</sonar.java.binaries>
 		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
@@ -41,6 +42,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
 				<configuration>
 					<source>11</source>
 					<target>11</target>
