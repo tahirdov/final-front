@@ -37,7 +37,7 @@
               <transformers>
                 <transformer>
                   <manifestEntries>
-                    <Main-Class>app.Application</Main-Class>
+                    <Main-Class>application.Application</Main-Class>
                   </manifestEntries>
                 </transformer>
               </transformers>
@@ -81,7 +81,7 @@
           <append>true</append>
           <excludes>
             <exclude>**/app/application.container/**</exclude>
-            <exclude>**/app/Application.class</exclude>
+            <exclude>**/application/Application.class</exclude>
           </excludes>
         </configuration>
       </plugin>
